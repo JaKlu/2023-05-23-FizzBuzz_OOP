@@ -15,18 +15,18 @@ public class Shout {
         this(divisor, textForDivisor, null);
     }
 
-    public String generate(int n) {
-        StringBuilder sb = new StringBuilder();
-        generate(sb, n);
-        return sb.length() == 0 ? String.valueOf(n) : sb.toString();
+    public String generate(int number) {
+        StringBuilder numberDescription = new StringBuilder();
+        generate(numberDescription, number);
+        return numberDescription.length() == 0 ? String.valueOf(number) : numberDescription.toString();
     }
 
-    private void generate(StringBuilder sb, int n) {
-        if (n % divisor == 0) {
-            sb.append(textForDivisor);
+    private void generate(StringBuilder numberDescription, int number) {
+        if (number % divisor == 0) {
+            numberDescription.append(textForDivisor);
         }
         if (next != null) {
-            next.generate(sb, n);
+            next.generate(numberDescription, number);
         }
     }
 }
